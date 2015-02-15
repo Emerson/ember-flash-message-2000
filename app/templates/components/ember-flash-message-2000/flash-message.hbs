@@ -1,0 +1,8 @@
+<div {{bind-attr class="flash-message message.type"}}>
+  {{{message.text}}}
+  <button type="button" class="close" aria-label="Close" {{action 'remove'}}>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+

@@ -1,7 +1,7 @@
 {
   "name": "ember-flash-message-2000",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.7",
+  "description": "Easy flash messages for your Ember-CLI app.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,11 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "https://github.com/Emerson/ember-flash-message-2000",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Emerson Lackey",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
@@ -35,7 +35,9 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "flash",
+    "flash message"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"

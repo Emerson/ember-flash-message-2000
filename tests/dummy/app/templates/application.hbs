@@ -1,3 +1,17 @@
-<h2 id="title">Welcome to Ember.js</h2>
+{{partial 'partials/nav'}}
 
-{{outlet}}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      {{outlet}}
+
+      <div class="well">
+        There are currently <strong>{{numberOfMessages}}</strong> in the message queue
+      </div>
+
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">
+      {{partial 'partials/debugger'}}
+    </div>
+  </div>
+</div>

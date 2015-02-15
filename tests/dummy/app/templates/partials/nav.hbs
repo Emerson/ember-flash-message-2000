@@ -1,0 +1,17 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'index' classNames='navbar-brand'}}Ember Flash Message 2000{{/link-to}}
+    </div>
+    <ul class="nav navbar-nav">
+      <li>{{#link-to 'dogs'}}Dogs{{/link-to}}</li>
+      <li>{{#link-to 'cats'}}Cats{{/link-to}}</li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,33 @@
+<form {{action 'submit' on='submit'}}>
+
+  <div class="form-group">
+    <label class="control-label">Message Text</label>
+    {{input value=model.message classNames="form-control" placeholder="Login was successful!"}}
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Message Type</label>
+    {{input value=model.type classNames="form-control" placeholder="danger, success, info, etc..."}}
+    <span class="help-block">The class applied to the message. Eg. alert-danger, alert-info</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Remove After (millisecond)</label>
+    {{input value=model.dismiss type="number" placeholder="Number of seconds (eg. 30)" classNames='form-control'}}
+    <span class="help-block">Causes the flash message to auto dismiss. 5000 = 5 seconds.</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Show</label>
+    {{view "select"
+      value=model.showWhen
+      content=model.selectOptions
+      optionValuePath="content.value"
+      optionLabelPath="content.label"}}
+  </div>
+
+  <div class="form-group">
+    <input type="submit" value="Add Flash Message" class="btn btn-primary">
+  </div>
+
+</form>
