@@ -11,7 +11,11 @@ export default Ember.Component.extend({
   },
 
   _dismiss: function() {
-    this.get('flashMessage.messages').removeObject(this.get('message'));
+    if(typeof this.customDismiss !== 'undefined') {
+      this.customDismiss();
+    }else{
+      this.get('flashMessage.messages').removeObject(this.get('message'));
+    }
   },
 
   actions: {

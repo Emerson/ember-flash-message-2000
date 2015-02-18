@@ -23,6 +23,8 @@ You can see the basic dummy app here:
 
 ```javascript
 
+// From within a route, controller, or component...
+
 // The basic flash message. Displays itself after the next route transition occurs
 this.get('flashMessage').addMessage({text: 'hello', type: 'alert alert-success'});
 
@@ -37,9 +39,39 @@ this.get('flashMessage').addMessage({text: 'goodbye', type: 'alert alert-success
 
 ```
 
-### Major Customizations
+### Custom Dismiss Effects
 
-Sometimes you'll want to _really_ customize things. In this case you can leverage the power of Ember-CLI and simply override the default templates provided by Ember-Flash-Message-2000. These are all defined [here](https://github.com/Emerson/ember-flash-message-2000/tree/master/app/templates/components/ember-flash-message-2000). In simple terms, create a folder in your host application `templates/components/ember-flash-message-2000/`, copy over the existing templates from this project, and modify to your liking. At the moment the markup is taken directly from bootstrap.
+If you'd like to add your own dismiss effects, all you need to do is override the default initializer. To do this, just copy the [default one from this repository](https://github.com/Emerson/ember-flash-message-2000/blob/master/app/initializers/ember-flash-message-2000.js) to your own project, ensuring the filename is the same. The initializer allows you to pass a config object that has a `customDismiss` method, which will be used in place of default one. You can see an example of this below:
+
+```javascript
+// your-app/initializers/flash-message-2000.js
+import Ember from 'ember';
+import {initialize} from 'ember-flash-message-2000/initializers/flash-message-2000';
+
+if(Ember.libraries) {
+  Ember.libraries.register('Ember Flash Message 2000', '0.0.7');
+}
+
+export default {
+  name: 'ember-flash-message-2000',
+  initialize: function(container, application) {
+    var config = {
+      customDismiss: function() {
+        var _this = this;
+        this.$().fadeOut(1000, function() {
+          _this.get('flashMessage.messages').removeObject(_this.get('message'));
+        })
+      }
+    };
+    initialize(container, application, config);
+  }
+};
+
+```
+
+### Template Customizations
+
+If you'd like to customize the markup of the flash messages you can leverage the power of Ember-CLI and simply override the default templates provided by Ember-Flash-Message-2000. These are all defined [here](https://github.com/Emerson/ember-flash-message-2000/tree/master/app/templates/components/ember-flash-message-2000). In simple terms, create a folder in your host application `templates/components/ember-flash-message-2000/`, copy over the existing templates from this project, and modify to your liking. At the moment the markup is taken directly from bootstrap.
 
 ### Demo App
 
